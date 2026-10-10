@@ -25,18 +25,8 @@ public class Note : MonoBehaviour
 
         transform.position = new Vector3(
             transform.position.x, 
-            Mathf.Lerp(startY, targetY, progress), 
+            Mathf.LerpUnclamped(startY, targetY, progress), 
             transform.position.z
         );
-
-        if(conductor.songPosInBeats > beat + 0.25f)
-        {
-            Debug.Log("Miss!");
-        }
-        if (conductor.songPosInBeats > beat + 1.25f)
-        {
-            Destroy(gameObject);
-        }
-       
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class Conductor : MonoBehaviour
 {
@@ -12,12 +13,19 @@ public class Conductor : MonoBehaviour
     public float songPos;
     public float songPosInBeats;
     public double dspSongStartTime;
+
+    public List<Note>[] notesInLanes = new List<Note>[4];
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         secPerBeat = 60f / bpm;
         dspSongStartTime = AudioSettings.dspTime + 1.0;
         audioSource.PlayScheduled(dspSongStartTime);
+
+        for (int i = 0; i < notesInLanes.Length; i++)
+        {
+            notesInLanes[i] = new List<Note>();
+        }
     }
 
     // Update is called once per frame
@@ -37,8 +45,29 @@ public class Conductor : MonoBehaviour
             Note noteScript = newNote.GetComponent<Note>();
             noteScript.beat = nextBeatToSpawn;
             noteScript.lane = lane;
+            notesInLanes[lane].Add(noteScript);
 
             nextBeatToSpawn += 1f;
+        }
+    }
+
+    public void HitNote(int laneIndex)
+    {
+        if (notesInLanes[laneIndex].Count == 0) return;
+
+        Note targetNote = notesInLanes[laneIndex][0];
+
+        float beatDiff = Mathf.Abs(songPosInBeats - targetNote.beat);
+
+        if(beatDiff <= 1f)
+        {
+            Debug.Log($"Hit auf Lane {laneIndex}! Diff: {beatDiff}");
+            notesInLanes[laneIndex].RemoveAt(0);
+            Destroy(targetNote.gameObject);
+        }
+        else
+        {
+            Debug.Log("Zu früh gedrückt!");
         }
     }
 }
