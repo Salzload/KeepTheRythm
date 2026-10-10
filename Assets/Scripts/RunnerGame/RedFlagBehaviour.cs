@@ -11,6 +11,7 @@ public class RedFlagBehaviour : MonoBehaviour
 
     Vector2 moveDirection = Vector2.down;
     [SerializeField] float moveSpeed = 6f;
+    [SerializeField] float hpToLoose = -10f;
 
     public void Initialized(GameObject track, int difficulty)
     {
@@ -55,6 +56,7 @@ public class RedFlagBehaviour : MonoBehaviour
 {
     if (other.CompareTag("Player"))
     {
+        GameEvents.OnLoveRemoved?.Invoke(hpToLoose);
         Destroy(gameObject);
         Debug.Log("get good");
         return;

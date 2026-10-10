@@ -127,4 +127,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b2f4309adb3564e587052cfc6224c02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RedFlagBehaviour
-  moveSpeed: 12
+  moveSpeed: 6
