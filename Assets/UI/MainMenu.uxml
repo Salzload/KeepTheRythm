@@ -5,9 +5,9 @@
             <ui:VisualElement name="Logo" style="flex-grow: 1;">
                 <ui:Image/>
             </ui:VisualElement>
-            <ui:Button text="Play" name="Play" class="menu-button"/>
-            <ui:Button text="Settings" name="Settings" class="menu-button"/>
-            <ui:Button text="Quit" name="Quit" class="menu-button"/>
+            <ui:Button text="Play" name="Play" class="menu-button" style="font-size: 16px;"/>
+            <ui:Button text="Settings" name="Settings" class="menu-button" style="font-size: 16px;"/>
+            <ui:Button text="Quit" name="Quit" class="menu-button" style="font-size: 16px;"/>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
