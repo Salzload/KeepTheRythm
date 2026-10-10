@@ -1,0 +1,20 @@
+:root {
+}
+
+.container {
+}
+
+.background {
+}
+
+.menu-button {
+    align-self: flex-start;
+    background-color: rgba(0, 0, 0, 0);
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+}
+
+.menu-button:hover {
+}
