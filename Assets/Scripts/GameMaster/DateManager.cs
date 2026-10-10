@@ -18,6 +18,8 @@ public class DateManager : MonoBehaviour
 
     public List<string> activePowerups = new List<string>();
 
+    private DateUI ui;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -44,6 +46,7 @@ public class DateManager : MonoBehaviour
 
     private void Start()
     {
+        ui = FindAnyObjectByType<DateUI>();
         UpdateLoveDisplay();
         StartCoroutine(GameLoop());
     }
@@ -87,9 +90,11 @@ public class DateManager : MonoBehaviour
     {
         for (int round = 1; round <= 3; round++)
         {
+            ui?.LowerGameboy();
             GameEvents.OnRoundStarted?.Invoke(round);
             yield return new WaitForSeconds(questionDuration);
 
+            ui?.RaiseGameBoy();
             yield return SceneManager.LoadSceneAsync(rhythmSceneName, LoadSceneMode.Additive);
             yield return new WaitForSeconds(minigameDuration);
 
@@ -107,6 +112,7 @@ public class DateManager : MonoBehaviour
 
             yield return new WaitForSeconds(1f);
 
+            ui?.RaiseGameBoy();
             yield return SceneManager.LoadSceneAsync(runnerSceneName, LoadSceneMode.Additive);
             yield return new WaitForSeconds(minigameDuration);
 
