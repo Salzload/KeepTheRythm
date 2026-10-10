@@ -8,7 +8,7 @@ public class RunnerPlayerMove : MonoBehaviour
     [SerializeField] private Key rightKey = Key.R;
 
     float[] positions = { -6f, -2f, 2f, 6f};
-    int lastPosition;
+    public int lastPosition;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,22 +27,14 @@ public class RunnerPlayerMove : MonoBehaviour
     {
         if (Keyboard.current[leftKey].wasPressedThisFrame)
         {
-            Debug.Log("W gedrückt");
-
             lastPosition = (lastPosition - 1 + positions.Length) % positions.Length;
-
-            Debug.Log(lastPosition);
 
             UpdatePlayerPosition();
         }
 
         if (Keyboard.current[rightKey].wasPressedThisFrame)
         {
-            Debug.Log("R gedrückt");
-
             lastPosition = (lastPosition + 1) % positions.Length;
-
-            Debug.Log(lastPosition);
 
             UpdatePlayerPosition();
         }

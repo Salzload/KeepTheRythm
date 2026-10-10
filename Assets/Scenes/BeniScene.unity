@@ -148,12 +148,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a541367535ec72099b72e78ebbbe9b83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RedFlagSpawner
-  RedFlag: {fileID: 2749301701028229641, guid: f952f86250e728d089cbc00ce5ba334d, type: 3}
+  player: {fileID: 1434337388}
+  redFlag: {fileID: 2749301701028229641, guid: f952f86250e728d089cbc00ce5ba334d, type: 3}
   tracks:
   - {fileID: 87868226}
   - {fileID: 1033767413}
   - {fileID: 756333623}
   - {fileID: 1084671084}
+  totalTime: 0
 --- !u!4 &28302152
 Transform:
   m_ObjectHideFlags: 0
@@ -433,6 +435,11 @@ GameObject:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3035129478959027816, guid: 0a22b03cb6082a22982bdac42e937706, type: 3}
   m_PrefabInstance: {fileID: 1226759188066461803}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1434337388 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3773007597513488355, guid: 7f80380fabfcc4273b5145239d2e35ee, type: 3}
+  m_PrefabInstance: {fileID: 950799595321695762}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &529623673129850979
 PrefabInstance:
