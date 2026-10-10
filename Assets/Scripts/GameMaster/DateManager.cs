@@ -131,7 +131,7 @@ public class DateManager : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
 
-        if (GetPercentage() >= 0.7f)
+        if (GetPercentage() >= 0.95f)
         {
             GameEvents.OnVictory?.Invoke();
         }
