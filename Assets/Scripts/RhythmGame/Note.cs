@@ -32,7 +32,11 @@ public class Note : MonoBehaviour
         if(conductor.songPosInBeats > beat + 0.25f)
         {
             Debug.Log("Miss!");
+        }
+        if (conductor.songPosInBeats > beat + 1.25f)
+        {
             Destroy(gameObject);
         }
+       
     }
 }

@@ -5,7 +5,7 @@ public class Conductor : MonoBehaviour
     public AudioSource audioSource;
     public GameObject notePrefab;
     public float[] laneXPos = { -1.5f, -0.5f, 0.5f, 1.5f };
-    public float[] noteBeats = { 4f, 5f, 6f, 7f, 8f, 9f, 10f };
+    public float nextBeatToSpawn = 4f;
     public int nextNoteIndex = 0;
     public float bpm = 120f;
     public float secPerBeat;
@@ -26,18 +26,19 @@ public class Conductor : MonoBehaviour
         songPos = (float)(AudioSettings.dspTime - dspSongStartTime);
         songPosInBeats = songPos / secPerBeat;
 
-        if(nextNoteIndex < noteBeats.Length && songPosInBeats >= noteBeats[nextNoteIndex]-2f)
+        if(songPosInBeats >= nextBeatToSpawn-2f)
         {
             int lane = Random.Range(0, laneXPos.Length);
             float spawnX = laneXPos[lane];
 
             Vector3 spawnPos = new Vector3(spawnX, -8f, 0f);
             GameObject newNote = Instantiate(notePrefab, spawnPos, Quaternion.identity);
+
             Note noteScript = newNote.GetComponent<Note>();
-            noteScript.beat = noteBeats[nextNoteIndex];
+            noteScript.beat = nextBeatToSpawn;
             noteScript.lane = lane;
 
-            nextNoteIndex++;
+            nextBeatToSpawn += 1f;
         }
     }
 }
