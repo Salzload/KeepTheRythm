@@ -16,7 +16,7 @@ public class RedFlagBehaviour : MonoBehaviour
     public void Initialized(GameObject track, int difficulty)
     {
         responsibelTrack = track;
-        moveSpeed += (difficulty*2);
+        moveSpeed += (difficulty * 2);
         SetPosition();
     }
 
@@ -43,7 +43,7 @@ public class RedFlagBehaviour : MonoBehaviour
 
         highestY = trackSpriteRender.bounds.max.y;
         currentX = trackSpriteRender.bounds.center.x;
-        
+
 
         transform.position = new Vector3(
             currentX,
@@ -53,13 +53,13 @@ public class RedFlagBehaviour : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other)
-{
-    if (other.CompareTag("Player"))
     {
-        GameEvents.OnLoveRemoved?.Invoke(hpToLoose);
-        Destroy(gameObject);
-        Debug.Log("get good");
-        return;
+        if (other.CompareTag("Player"))
+        {
+            GameEvents.OnLoveRemoved?.Invoke(hpToLoose);
+            Destroy(gameObject);
+            Debug.Log("get good");
+            return;
+        }
     }
-}
 }
