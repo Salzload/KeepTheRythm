@@ -20,12 +20,75 @@ public class DateUI : MonoBehaviour
     public Vector2 gbaTalkingPos = new Vector2(0, -120f);
     public float animationSpeed = 8f;
 
+    [Header("Shake Duration")]
+    public float damageShakeDuration = 0.2f;
+    public float damageShakeStrength = 5f;
+
+    private Coroutine activeShakeCoroutine;
+    private Vector2 shakeBasePosition;
+    private bool isShaking = false;
+
+    private void HandleDamageShake(float amount)
+    {
+        if (activeShakeCoroutine != null)
+        {
+            StopCoroutine(activeShakeCoroutine);
+        }
+
+        activeShakeCoroutine = StartCoroutine(ShakeGBARoutine());
+    }
+
+    private IEnumerator ShakeGBARoutine()
+    {
+
+        if (!isShaking)
+        {
+            shakeBasePosition = gbaContainer.anchoredPosition;
+            isShaking = true;
+        }
+
+        float elapsed = 0f;
+
+        while (elapsed < damageShakeDuration)
+        {
+            float offsetX = Random.Range(-damageShakeStrength, damageShakeStrength);
+            float offsetY = Random.Range(-damageShakeStrength, damageShakeStrength);
+
+            gbaContainer.anchoredPosition = shakeBasePosition + new Vector2(offsetX, offsetY);
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        gbaContainer.anchoredPosition = shakeBasePosition;
+        isShaking = false;
+        activeShakeCoroutine = null;
+    }
+
+    private void HandleLovePop(float amount)
+    {
+        StartCoroutine(PopBarRoutine());
+    }
+
+    private IEnumerator PopBarRoutine()
+    {
+        if (loveSlider == null) yield break;
+
+        loveSlider.transform.localScale = Vector3.one * 1.15f;
+        yield return new WaitForSeconds(0.08f);
+        loveSlider.transform.localScale = Vector3.one;
+    }
+
     private void OnEnable()
     {
         GameEvents.OnLoveChangedNormalized += UpdateBar;
         GameEvents.OnRoundStarted += ShowQuestion;
         GameEvents.OnGameOver += ShowGameOver;
         GameEvents.OnVictory += ShowVictory;
+
+        GameEvents.OnLoveRemoved += HandleDamageShake;
+        GameEvents.OnLoveAdded += HandleLovePop;
+
     }
 
     private void OnDisable()
@@ -34,6 +97,9 @@ public class DateUI : MonoBehaviour
         GameEvents.OnRoundStarted -= ShowQuestion;
         GameEvents.OnGameOver -= ShowGameOver;
         GameEvents.OnVictory -= ShowVictory;
+
+        GameEvents.OnLoveRemoved -= HandleDamageShake;
+        GameEvents.OnLoveAdded -= HandleLovePop;
     }
 
     public void LowerGameboy()
