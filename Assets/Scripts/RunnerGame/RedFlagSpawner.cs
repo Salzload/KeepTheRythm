@@ -17,7 +17,6 @@ public class RedFlagSpawner : MonoBehaviour
     void Start()
     {
         difficulty = Mathf.Min(Mathf.FloorToInt(precentage * 4), 4);
-        Debug.Log(difficulty);
     }
 
     void Update()
@@ -59,7 +58,7 @@ public class RedFlagSpawner : MonoBehaviour
 
     void SpawnFlag(GameObject spawnTrack)
     {
-        GameObject flag = Instantiate(redFlag);
+        GameObject flag = Instantiate(redFlag, gameObject.transform);
 
         RedFlagBehaviour behaviour = flag.GetComponent<RedFlagBehaviour>();
 
