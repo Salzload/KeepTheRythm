@@ -17,7 +17,6 @@ public class RedFlagBehaviour : MonoBehaviour
     {
         responsibelTrack = track;
         moveSpeed += (difficulty * 2);
-        moveSpeed += (difficulty * 2);
         SetPosition();
     }
 
@@ -44,7 +43,6 @@ public class RedFlagBehaviour : MonoBehaviour
 
         highestY = trackSpriteRender.bounds.max.y;
         currentX = trackSpriteRender.bounds.center.x;
-
 
 
         transform.position = new Vector3(
