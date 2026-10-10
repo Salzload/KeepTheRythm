@@ -32,7 +32,7 @@ public class Conductor : MonoBehaviour
             int lane = noteLanes[nextNoteIndex];
             float spawnX = laneXPos[lane];
 
-            Vector3 spawnPos = new Vector3(spawnX, -4f, 0f);
+            Vector3 spawnPos = new Vector3(spawnX, -8f, 0f);
             GameObject newNote = Instantiate(notePrefab, spawnPos, Quaternion.identity);
             Note noteScript = newNote.GetComponent<Note>();
             noteScript.beat = noteBeats[nextNoteIndex];

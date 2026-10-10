@@ -109,5 +109,5 @@ MonoBehaviour:
   lane: 0
   beat: 4
   beatsShownInAdvance: 2
-  startY: -4
-  targetY: 3
+  startY: -8
+  targetY: -2
