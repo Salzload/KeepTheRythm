@@ -11,12 +11,12 @@ public class RedFlagBehaviour : MonoBehaviour
 
     Vector2 moveDirection = Vector2.down;
     [SerializeField] float moveSpeed = 6f;
-    [SerializeField] float hpToLoose = -10f;
+    [SerializeField] float hpToLoose = 10f;
 
     public void Initialized(GameObject track, int difficulty)
     {
         responsibelTrack = track;
-        moveSpeed += (difficulty*2);
+        moveSpeed += (difficulty * 2);
         SetPosition();
     }
 
@@ -43,7 +43,7 @@ public class RedFlagBehaviour : MonoBehaviour
 
         highestY = trackSpriteRender.bounds.max.y;
         currentX = trackSpriteRender.bounds.center.x;
-        
+
 
         transform.position = new Vector3(
             currentX,
@@ -52,14 +52,14 @@ public class RedFlagBehaviour : MonoBehaviour
         );
     }
 
-    private void OnTriggerEnter(Collider other)
-{
-    if (other.CompareTag("Player"))
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        GameEvents.OnLoveRemoved?.Invoke(hpToLoose);
-        Destroy(gameObject);
-        Debug.Log("get good");
-        return;
+        if (other.CompareTag("Player"))
+        {
+            GameEvents.OnLoveRemoved?.Invoke(hpToLoose);
+            Destroy(gameObject);
+            Debug.Log("get good");
+            return;
+        }
     }
-}
 }
