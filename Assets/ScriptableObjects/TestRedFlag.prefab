@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RedFlagBehaviour
   moveSpeed: 6
-  hpToLoose: -10
+  hpToLoose: 10
 --- !u!61 &-3213498141800256723
 BoxCollider2D:
   m_ObjectHideFlags: 0
