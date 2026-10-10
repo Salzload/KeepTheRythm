@@ -6,7 +6,6 @@ public class Conductor : MonoBehaviour
     public GameObject notePrefab;
     public float[] laneXPos = { -1.5f, -0.5f, 0.5f, 1.5f };
     public float[] noteBeats = { 4f, 5f, 6f, 7f, 8f, 9f, 10f };
-    public int[] noteLanes = { 0, 1, 2, 3, 2, 1, 0 };
     public int nextNoteIndex = 0;
     public float bpm = 120f;
     public float secPerBeat;
@@ -29,7 +28,7 @@ public class Conductor : MonoBehaviour
 
         if(nextNoteIndex < noteBeats.Length && songPosInBeats >= noteBeats[nextNoteIndex]-2f)
         {
-            int lane = noteLanes[nextNoteIndex];
+            int lane = Random.Range(0, laneXPos.Length);
             float spawnX = laneXPos[lane];
 
             Vector3 spawnPos = new Vector3(spawnX, -8f, 0f);
