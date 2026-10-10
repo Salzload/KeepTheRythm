@@ -49,7 +49,7 @@ public class RedFlagSpawner : MonoBehaviour
             do
             {
                 selectTrack = Random.Range(0, tracks.Length);
-            } while(spawns.Contains(selectTrack));
+            } while (spawns.Contains(selectTrack));
 
             SpawnFlag(tracks[selectTrack]);
             spawns.Add(selectTrack);
