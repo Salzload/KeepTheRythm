@@ -1,21 +1,21 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem.Controls;
 
 public class RedFlagBehaviour : MonoBehaviour
 {
     GameObject responsibelTrack;
-    GameObject selfRedFlag;
     float highestY;
     float currentX;
     float lifetime;
 
     Vector2 moveDirection = Vector2.down;
-    [SerializeField] float moveSpeed = 20f;
+    [SerializeField] float moveSpeed = 6f;
 
-    public void Initialized(GameObject track, GameObject self)
+    public void Initialized(GameObject track, int difficulty)
     {
         responsibelTrack = track;
-        selfRedFlag = self;
+        moveSpeed += (difficulty*2);
         SetPosition();
     }
 
@@ -30,6 +30,8 @@ public class RedFlagBehaviour : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+
+        float movement = moveSpeed * Time.deltaTime;
 
         transform.position += (Vector3)(moveDirection * moveSpeed * Time.deltaTime);
     }
@@ -48,4 +50,14 @@ public class RedFlagBehaviour : MonoBehaviour
             transform.position.z
         );
     }
+
+    private void OnTriggerEnter(Collider other)
+{
+    if (other.CompareTag("Player"))
+    {
+        Destroy(gameObject);
+        Debug.Log("get good");
+        return;
+    }
+}
 }
