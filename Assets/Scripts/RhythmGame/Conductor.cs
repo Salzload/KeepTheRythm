@@ -5,6 +5,7 @@ public class Conductor : MonoBehaviour
 {
     public AudioSource audioSource;
     public GameObject notePrefab;
+    public SliderController controller;
     public float[] laneXPos = { -2f, -0.66f, 0.66f, 2f };
     public float nextBeatToSpawn = 4f;
     public int nextNoteIndex = 0;
@@ -42,7 +43,7 @@ public class Conductor : MonoBehaviour
             int lane = Random.Range(0, laneXPos.Length);
             float spawnX = laneXPos[lane];
 
-            Vector3 spawnPos = new Vector3(spawnX, targetY, 0f);
+            Vector3 spawnPos = new Vector3(spawnX, spawnY, 0f);
             GameObject newNote = Instantiate(notePrefab, spawnPos, Quaternion.identity);
 
             Note noteScript = newNote.GetComponent<Note>();
@@ -72,6 +73,7 @@ public class Conductor : MonoBehaviour
         if (beatDiff <= 0.25f)
         {
             Debug.Log($"Hit auf Lane {laneIndex}! Diff: {beatDiff}");
+            controller.addProgess();
             notesInLanes[laneIndex].RemoveAt(0);
             Destroy(targetNote.gameObject);
         }
