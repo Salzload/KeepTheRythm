@@ -28,5 +28,10 @@ public class Note : MonoBehaviour
             Mathf.LerpUnclamped(startY, targetY, progress), 
             transform.position.z
         );
+
+        if(conductor.songPosInBeats > beat + 0.3f)
+        {
+            Destroy(gameObject);
+        }
     }
 }

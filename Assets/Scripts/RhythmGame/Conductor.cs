@@ -14,6 +14,9 @@ public class Conductor : MonoBehaviour
     public float songPosInBeats;
     public double dspSongStartTime;
 
+    public float spawnY = -8f;
+    public float targetY = 3f;
+
     public List<Note>[] notesInLanes = new List<Note>[4];
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -39,12 +42,14 @@ public class Conductor : MonoBehaviour
             int lane = Random.Range(0, laneXPos.Length);
             float spawnX = laneXPos[lane];
 
-            Vector3 spawnPos = new Vector3(spawnX, -8f, 0f);
+            Vector3 spawnPos = new Vector3(spawnX, targetY, 0f);
             GameObject newNote = Instantiate(notePrefab, spawnPos, Quaternion.identity);
 
             Note noteScript = newNote.GetComponent<Note>();
             noteScript.beat = nextBeatToSpawn;
             noteScript.lane = lane;
+            noteScript.startY = spawnY;
+            noteScript.targetY = targetY;
             notesInLanes[lane].Add(noteScript);
 
             nextBeatToSpawn += 1f;
@@ -53,13 +58,18 @@ public class Conductor : MonoBehaviour
 
     public void HitNote(int laneIndex)
     {
+        while (notesInLanes[laneIndex].Count > 0 &&
+               songPosInBeats > notesInLanes[laneIndex][0].beat + 0.25f)
+        {
+            notesInLanes[laneIndex].RemoveAt(0);
+        }
+
         if (notesInLanes[laneIndex].Count == 0) return;
 
         Note targetNote = notesInLanes[laneIndex][0];
-
         float beatDiff = Mathf.Abs(songPosInBeats - targetNote.beat);
 
-        if(beatDiff <= 1f)
+        if (beatDiff <= 0.25f)
         {
             Debug.Log($"Hit auf Lane {laneIndex}! Diff: {beatDiff}");
             notesInLanes[laneIndex].RemoveAt(0);
@@ -67,7 +77,7 @@ public class Conductor : MonoBehaviour
         }
         else
         {
-            Debug.Log("Zu früh gedrückt!");
+            Debug.Log("Zu früh!");
         }
     }
 }
