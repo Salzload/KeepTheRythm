@@ -1,11 +1,23 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class GameTest : MonoBehaviour
 {
-    void Update()
+
+        void Update()
     {
-        if (Keyboard.current == null) return;
+        if (Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame)
+        {
+            RestartGame();
+        }
+    }
+
+    public void RestartGame()
+    {
+        Time.timeScale = 1f; // Wichtig falls Game Over die Zeit gestoppt hat
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 
         /*if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
@@ -30,5 +42,4 @@ public class GameTest : MonoBehaviour
             Debug.Log("<color=black>TEST: Instant Game Over</color>");
             GameEvents.OnLoveRemoved?.Invoke(100f);
         } */
-    }
 }
