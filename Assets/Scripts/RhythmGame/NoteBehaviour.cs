@@ -8,11 +8,13 @@ public class NoteBehaviour : MonoBehaviour
     Vector2 startPosition;
     float elapsedTime = 0f;
     NoteSpawner spawner;
+    MultiplikatorCounter multBreaker;
 
-    public void Initialized(float beat4, GameObject track, GameObject button)
+    public void Initialized(float beat4, GameObject track, GameObject button, GameObject counter)
     {
         travelTime = beat4;
         spawner = button.GetComponent<NoteSpawner>();
+        multBreaker = counter.GetComponent<MultiplikatorCounter>();
 
         Renderer trackRenderer = track.GetComponent<Renderer>();
 
@@ -53,6 +55,7 @@ public class NoteBehaviour : MonoBehaviour
             {
                 Debug.Log("Missed!");
                 spawner.notes.Remove(gameObject);
+                multBreaker.breakMult();
                 Destroy(gameObject);
             }
         }
