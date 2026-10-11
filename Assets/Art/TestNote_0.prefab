@@ -110,4 +110,4 @@ MonoBehaviour:
   beat: 4
   beatsShownInAdvance: 2
   startY: -8
-  targetY: -2
+  targetY: 3

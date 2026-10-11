@@ -228,7 +228,7 @@ MonoBehaviour:
   defaultImage: {fileID: -8179661578221307756, guid: 8d30e6edaabc4f54f978ab587d9c2d57, type: 3}
   pressedImage: {fileID: -80244098624519890, guid: 30b4f6d2892ddc647b8f37deae29b7c3, type: 3}
   key: 62
-  lane: 0
+  lane: 3
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -583,7 +583,7 @@ MonoBehaviour:
   defaultImage: {fileID: -8179661578221307756, guid: 8d30e6edaabc4f54f978ab587d9c2d57, type: 3}
   pressedImage: {fileID: -80244098624519890, guid: 30b4f6d2892ddc647b8f37deae29b7c3, type: 3}
   key: 63
-  lane: 0
+  lane: 1
 --- !u!1 &810331874
 GameObject:
   m_ObjectHideFlags: 0
@@ -740,6 +740,8 @@ MonoBehaviour:
   songPos: 0
   songPosInBeats: 0
   dspSongStartTime: 0
+  spawnY: -8
+  targetY: 3
 --- !u!1 &874837535
 GameObject:
   m_ObjectHideFlags: 0
@@ -959,7 +961,7 @@ MonoBehaviour:
   defaultImage: {fileID: -8179661578221307756, guid: 8d30e6edaabc4f54f978ab587d9c2d57, type: 3}
   pressedImage: {fileID: -80244098624519890, guid: 30b4f6d2892ddc647b8f37deae29b7c3, type: 3}
   key: 64
-  lane: 0
+  lane: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
