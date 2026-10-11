@@ -14,7 +14,8 @@ public class DateManager : MonoBehaviour
     public string runnerSceneName = "Runner";
 
     public float questionDuration = 3.5f;
-    public float minigameDuration = 15f;
+    public float rhythmDuration = 12f;
+    public float runnerDuration = 18f;
 
     public List<string> activePowerups = new List<string>();
 
@@ -65,6 +66,7 @@ public class DateManager : MonoBehaviour
         if (currentLove <= 0f)
         {
             StopAllCoroutines();
+            GameEvents.OnMinigameEnded?.Invoke();
             UnloadActiveSubScenes();
             GameEvents.OnGameOver?.Invoke();
         }
@@ -96,7 +98,9 @@ public class DateManager : MonoBehaviour
 
             ui?.RaiseGameBoy();
             yield return SceneManager.LoadSceneAsync(rhythmSceneName, LoadSceneMode.Additive);
-            yield return new WaitForSeconds(minigameDuration);
+            yield return new WaitForSeconds(rhythmDuration);
+
+            GameEvents.OnMinigameEnded?.Invoke();
 
             Scene rhythmScene = SceneManager.GetSceneByName(rhythmSceneName);
             if (rhythmScene.isLoaded)
@@ -114,7 +118,9 @@ public class DateManager : MonoBehaviour
 
             ui?.RaiseGameBoy();
             yield return SceneManager.LoadSceneAsync(runnerSceneName, LoadSceneMode.Additive);
-            yield return new WaitForSeconds(minigameDuration);
+            yield return new WaitForSeconds(runnerDuration);
+
+            GameEvents.OnMinigameEnded?.Invoke();
 
             Scene runnerScene = SceneManager.GetSceneByName(runnerSceneName);
             if (runnerScene.isLoaded)

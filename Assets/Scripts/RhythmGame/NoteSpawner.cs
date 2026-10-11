@@ -18,8 +18,13 @@ public class NoteSpawner : MonoBehaviour
     void Start()
     {
         BpmScanner scanner = bpmScanner.GetComponent<BpmScanner>();
-        beat = 60/scanner.bpm;
+        beat = 60 / scanner.bpm;
         counter = multiCounter.GetComponent<MultiplikatorCounter>();
+    }
+
+    void OnDisable()
+    {
+        ClearAllNotes();
     }
 
     void Update()
@@ -41,18 +46,18 @@ public class NoteSpawner : MonoBehaviour
         else if (nullDistance > 0.25f)
         {
             counter.hitNote();
+            GameEvents.OnLoveAdded?.Invoke(0.15f * counter.getMult());
             GameObject note = notes[0];
             notes.Remove(note);
             Destroy(note);
-            Debug.Log("Guter Hit! Aktueller Multplikator:" + counter.getMult());
         }
         else
         {
             counter.perfectNote();
+            GameEvents.OnLoveAdded?.Invoke(0.3f * counter.getMult());
             GameObject note = notes[0];
             notes.Remove(note);
             Destroy(note);
-            Debug.Log("Perfekter Hit!  Aktueller Multplikator:" + counter.getMult());
         }
     }
 
@@ -62,8 +67,20 @@ public class NoteSpawner : MonoBehaviour
 
         NoteBehaviour behaviour = spawnNote.GetComponent<NoteBehaviour>();
 
-        behaviour.Initialized(beat*4, track, gameObject, multiCounter);
+        behaviour.Initialized(beat * 4, track, gameObject, multiCounter);
 
         notes.Add(spawnNote);
+    }
+
+    public void ClearAllNotes()
+    {
+        for (int i = notes.Count - 1; i >= 0; i--)
+        {
+            if (notes[i] != null)
+            {
+                Destroy(notes[i]);
+            }
+        }
+        notes.Clear();
     }
 }
