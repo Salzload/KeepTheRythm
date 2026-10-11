@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class NoteBehaviour : MonoBehaviour
@@ -6,10 +7,12 @@ public class NoteBehaviour : MonoBehaviour
     float travelTime;
     Vector2 startPosition;
     float elapsedTime = 0f;
+    NoteSpawner spawner;
 
-    public void Initialized(float beat4, GameObject track)
+    public void Initialized(float beat4, GameObject track, GameObject button)
     {
         travelTime = beat4;
+        spawner = button.GetComponent<NoteSpawner>();
 
         Renderer trackRenderer = track.GetComponent<Renderer>();
 
@@ -48,6 +51,8 @@ public class NoteBehaviour : MonoBehaviour
 
             if (transform.position.y >= targetPosition.y + 1f)
             {
+                Debug.Log("Missed!");
+                spawner.notes.Remove(gameObject);
                 Destroy(gameObject);
             }
         }
