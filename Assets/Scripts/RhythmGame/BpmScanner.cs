@@ -2,15 +2,27 @@ using UnityEngine;
 
 public class BpmScanner : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    [SerializeField] private GameObject[] buttons;
+    [SerializeField] public float bpm = 130f;
+    float beat;
+    float trackTime = 0;
+    float spawnTime;
+
     void Start()
     {
-        
+        gameObject.GetComponent<AudioSource>().Play();
+        beat = 60/bpm;
+        spawnTime = beat;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        trackTime += Time.deltaTime;
+        if(trackTime >= spawnTime)
+        {
+            buttons[Random.Range(0, buttons.Length)].GetComponent<NoteSpawner>().SpawnNote();
+            spawnTime += beat;
+        }
     }
 }
