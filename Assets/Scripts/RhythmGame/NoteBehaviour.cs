@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class NoteBehaviour : MonoBehaviour
@@ -9,6 +8,23 @@ public class NoteBehaviour : MonoBehaviour
     float elapsedTime = 0f;
     NoteSpawner spawner;
     MultiplikatorCounter multBreaker;
+    private bool isAborted = false;
+
+    void OnEnable()
+    {
+        GameEvents.OnMinigameEnded += AbortNote;
+    }
+
+    void OnDisable()
+    {
+        GameEvents.OnMinigameEnded -= AbortNote;
+    }
+
+    private void AbortNote()
+    {
+        isAborted = true;
+        Destroy(gameObject);
+    }
 
     public void Initialized(float beat4, GameObject track, GameObject button, GameObject counter)
     {
@@ -17,35 +33,24 @@ public class NoteBehaviour : MonoBehaviour
         multBreaker = counter.GetComponent<MultiplikatorCounter>();
 
         Renderer trackRenderer = track.GetComponent<Renderer>();
-
         Bounds bounds = trackRenderer.bounds;
 
-        startPosition = new Vector2(
-            bounds.center.x,
-            bounds.min.y
-        );
-
-        targetPosition = new Vector2(
-            bounds.center.x,
-            bounds.max.y
-        );
+        startPosition = new Vector2(bounds.center.x, bounds.min.y);
+        targetPosition = new Vector2(bounds.center.x, bounds.max.y);
 
         transform.position = startPosition;
     }
 
     void Update()
     {
+        if (isAborted) return;
+
         elapsedTime += Time.deltaTime;
 
         if (elapsedTime <= travelTime)
         {
             float progress = elapsedTime / travelTime;
-
-            transform.position = Vector2.Lerp(
-                startPosition,
-                targetPosition,
-                progress
-            );
+            transform.position = Vector2.Lerp(startPosition, targetPosition, progress);
         }
         else
         {
@@ -53,9 +58,13 @@ public class NoteBehaviour : MonoBehaviour
 
             if (transform.position.y >= targetPosition.y + 1f)
             {
-                Debug.Log("Missed!");
-                spawner.notes.Remove(gameObject);
-                multBreaker.breakMult();
+                if (!isAborted)
+                {
+                    Debug.Log("Missed!");
+                    GameEvents.OnLoveRemoved?.Invoke(0.2f);
+                    spawner?.notes.Remove(gameObject);
+                    multBreaker?.breakMult();
+                }
                 Destroy(gameObject);
             }
         }

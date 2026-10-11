@@ -9,9 +9,11 @@ public static class GameEvents
 
     public static Action<string> OnPowerupCollected;
 
+    public static Action<int, int> OnComboChanged;
     public static Action<string> OnPlaySFX;
     public static Action<string> OnReactionTriggered;
 
+    public static Action OnMinigameEnded;
     public static Action<int> OnRoundStarted;
     public static Action OnGameOver;
     public static Action OnVictory;
