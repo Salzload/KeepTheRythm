@@ -139,6 +139,50 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8827232105994046805, guid: 133f530a83dc196268ef5a24cc2f43e1, type: 3}
   m_PrefabInstance: {fileID: 4638941305953600420}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &322219346
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 322219348}
+  - component: {fileID: 322219347}
+  m_Layer: 0
+  m_Name: MultiCount
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &322219347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322219346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5506512a2b0f1fc5a905b04daf966c91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MultiplikatorCounter
+--- !u!4 &322219348
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322219346}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.51226, y: -1.09794, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &482010718 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7674327143661966391, guid: 61dd540be9d2163c39acdc1d881809a4, type: 3}
@@ -494,7 +538,7 @@ GameObject:
   - component: {fileID: 1426693670}
   - component: {fileID: 1426693669}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: BpmScanner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -721,6 +765,10 @@ PrefabInstance:
       propertyPath: bpmScanner
       value: 
       objectReference: {fileID: 1426693668}
+    - target: {fileID: 3475006951593773834, guid: 5b0673e927af70fd89f0616d841d3308, type: 3}
+      propertyPath: multiCounter
+      value: 
+      objectReference: {fileID: 322219346}
     - target: {fileID: 3627002028766916004, guid: 5b0673e927af70fd89f0616d841d3308, type: 3}
       propertyPath: m_Name
       value: button_purple_0
@@ -794,6 +842,10 @@ PrefabInstance:
       propertyPath: bpmScanner
       value: 
       objectReference: {fileID: 1426693668}
+    - target: {fileID: -8412987009566765290, guid: ca9f9e5cfb5432249aabf1c6b9f2e022, type: 3}
+      propertyPath: multiCounter
+      value: 
+      objectReference: {fileID: 322219346}
     - target: {fileID: 1475059572184496562, guid: ca9f9e5cfb5432249aabf1c6b9f2e022, type: 3}
       propertyPath: m_Name
       value: button_green_0
@@ -912,6 +964,10 @@ PrefabInstance:
       propertyPath: bpmScanner
       value: 
       objectReference: {fileID: 1426693668}
+    - target: {fileID: 2876795415558549414, guid: 7ab40c9b9f92d987eb720aaa8fd087f5, type: 3}
+      propertyPath: multiCounter
+      value: 
+      objectReference: {fileID: 322219346}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1112,6 +1168,10 @@ PrefabInstance:
       propertyPath: bpmScanner
       value: 
       objectReference: {fileID: 1426693668}
+    - target: {fileID: 858584882378129680, guid: 99cac31aafdf17b99b943d80ea7b437c, type: 3}
+      propertyPath: multiCounter
+      value: 
+      objectReference: {fileID: 322219346}
     - target: {fileID: 1388229029430473227, guid: 99cac31aafdf17b99b943d80ea7b437c, type: 3}
       propertyPath: m_Name
       value: button_blue_0
@@ -1177,3 +1237,4 @@ SceneRoots:
   - {fileID: 6044108756917663444}
   - {fileID: 7144763226987550905}
   - {fileID: 1426693671}
+  - {fileID: 322219348}

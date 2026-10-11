@@ -9,14 +9,17 @@ public class NoteSpawner : MonoBehaviour
     [SerializeField] GameObject note;
     [SerializeField] GameObject bpmScanner;
     [SerializeField] Key key;
+    [SerializeField] GameObject multiCounter;
     float beat;
     float nullDistance;
     public List<GameObject> notes = new List<GameObject>();
+    MultiplikatorCounter counter;
 
     void Start()
     {
         BpmScanner scanner = bpmScanner.GetComponent<BpmScanner>();
         beat = 60/scanner.bpm;
+        counter = multiCounter.GetComponent<MultiplikatorCounter>();
     }
 
     void Update()
@@ -32,15 +35,24 @@ public class NoteSpawner : MonoBehaviour
 
         if (nullDistance > 1f)
         {
+            counter.breakMult();
             Debug.Log("Zu weit weg!");
         }
         else if (nullDistance > 0.25f)
         {
-            Debug.Log("Guter Hit!");
+            counter.hitNote();
+            GameObject note = notes[0];
+            notes.Remove(note);
+            Destroy(note);
+            Debug.Log("Guter Hit! Aktueller Multplikator:" + counter.getMult());
         }
         else
         {
-            Debug.Log("Perfekter Hit!");
+            counter.perfectNote();
+            GameObject note = notes[0];
+            notes.Remove(note);
+            Destroy(note);
+            Debug.Log("Perfekter Hit!  Aktueller Multplikator:" + counter.getMult());
         }
     }
 
@@ -50,7 +62,7 @@ public class NoteSpawner : MonoBehaviour
 
         NoteBehaviour behaviour = spawnNote.GetComponent<NoteBehaviour>();
 
-        behaviour.Initialized(beat*4, track, gameObject);
+        behaviour.Initialized(beat*4, track, gameObject, multiCounter);
 
         notes.Add(spawnNote);
     }
