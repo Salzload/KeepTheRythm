@@ -10,6 +10,14 @@ public class NoteSpawner : MonoBehaviour
     [SerializeField] GameObject bpmScanner;
     [SerializeField] Key key;
     [SerializeField] GameObject multiCounter;
+
+    [SerializeField] private SpriteRenderer buttonRenderer;
+    [SerializeField] private Sprite neutralSprite;
+    [SerializeField] private Sprite clickedSprite;
+    [SerializeField] private float feedbackDuration = 0.1f;
+
+    private Coroutine feedbackCoroutine;
+
     float beat;
     float nullDistance;
     public List<GameObject> notes = new List<GameObject>();
@@ -37,6 +45,8 @@ public class NoteSpawner : MonoBehaviour
         );
 
         if (!Keyboard.current[key].wasPressedThisFrame) return;
+
+        PlayButtonFeedback();
 
         if (nullDistance > 1f)
         {
@@ -82,5 +92,25 @@ public class NoteSpawner : MonoBehaviour
             }
         }
         notes.Clear();
+    }
+
+    private void PlayButtonFeedback()
+    {
+        if (feedbackCoroutine != null)
+        {
+            StopCoroutine(feedbackCoroutine);
+        }
+
+        feedbackCoroutine = StartCoroutine(ButtonFeedback());
+    }
+
+    private System.Collections.IEnumerator ButtonFeedback()
+    {
+        buttonRenderer.sprite = clickedSprite;
+
+        yield return new WaitForSeconds(feedbackDuration);
+
+        buttonRenderer.sprite = neutralSprite;
+        feedbackCoroutine = null;
     }
 }

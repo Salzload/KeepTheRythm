@@ -301,10 +301,30 @@ PrefabInstance:
       propertyPath: multiCounter
       value: 
       objectReference: {fileID: 1376310229}
+    - target: {fileID: -8412987009566765290, guid: ca9f9e5cfb5432249aabf1c6b9f2e022, type: 3}
+      propertyPath: clickedSprite
+      value: 
+      objectReference: {fileID: -4218116694596951747, guid: 6bacbcd612275764ebca8775d318a3ac, type: 3}
+    - target: {fileID: -8412987009566765290, guid: ca9f9e5cfb5432249aabf1c6b9f2e022, type: 3}
+      propertyPath: neutralSprite
+      value: 
+      objectReference: {fileID: -2151837366580909806, guid: 6bacbcd612275764ebca8775d318a3ac, type: 3}
+    - target: {fileID: -8412987009566765290, guid: ca9f9e5cfb5432249aabf1c6b9f2e022, type: 3}
+      propertyPath: buttonRenderer
+      value: 
+      objectReference: {fileID: 1089080449}
+    - target: {fileID: -8412987009566765290, guid: ca9f9e5cfb5432249aabf1c6b9f2e022, type: 3}
+      propertyPath: feedbackDuration
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1475059572184496562, guid: ca9f9e5cfb5432249aabf1c6b9f2e022, type: 3}
       propertyPath: m_Name
       value: button_green_0
       objectReference: {fileID: 0}
+    - target: {fileID: 6820206733108468396, guid: ca9f9e5cfb5432249aabf1c6b9f2e022, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2151837366580909806, guid: 6bacbcd612275764ebca8775d318a3ac, type: 3}
     - target: {fileID: 8921436755232517271, guid: ca9f9e5cfb5432249aabf1c6b9f2e022, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.57
@@ -354,6 +374,11 @@ PrefabInstance:
 --- !u!1 &1089080448 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1475059572184496562, guid: ca9f9e5cfb5432249aabf1c6b9f2e022, type: 3}
+  m_PrefabInstance: {fileID: 1089080447}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1089080449 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6820206733108468396, guid: ca9f9e5cfb5432249aabf1c6b9f2e022, type: 3}
   m_PrefabInstance: {fileID: 1089080447}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1116840991
@@ -532,10 +557,26 @@ PrefabInstance:
       propertyPath: multiCounter
       value: 
       objectReference: {fileID: 1376310229}
+    - target: {fileID: 858584882378129680, guid: 99cac31aafdf17b99b943d80ea7b437c, type: 3}
+      propertyPath: clickedSprite
+      value: 
+      objectReference: {fileID: 29705044, guid: 6bacbcd612275764ebca8775d318a3ac, type: 3}
+    - target: {fileID: 858584882378129680, guid: 99cac31aafdf17b99b943d80ea7b437c, type: 3}
+      propertyPath: neutralSprite
+      value: 
+      objectReference: {fileID: -8430326312898560293, guid: 6bacbcd612275764ebca8775d318a3ac, type: 3}
+    - target: {fileID: 858584882378129680, guid: 99cac31aafdf17b99b943d80ea7b437c, type: 3}
+      propertyPath: buttonRenderer
+      value: 
+      objectReference: {fileID: 1351686500}
     - target: {fileID: 1388229029430473227, guid: 99cac31aafdf17b99b943d80ea7b437c, type: 3}
       propertyPath: m_Name
       value: button_blue_0
       objectReference: {fileID: 0}
+    - target: {fileID: 2406422638749564014, guid: 99cac31aafdf17b99b943d80ea7b437c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -8430326312898560293, guid: 6bacbcd612275764ebca8775d318a3ac, type: 3}
     - target: {fileID: 3678109392047026052, guid: 99cac31aafdf17b99b943d80ea7b437c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.57
@@ -584,6 +625,11 @@ PrefabInstance:
 --- !u!1 &1351686499 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1388229029430473227, guid: 99cac31aafdf17b99b943d80ea7b437c, type: 3}
+  m_PrefabInstance: {fileID: 1351686498}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1351686500 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2406422638749564014, guid: 99cac31aafdf17b99b943d80ea7b437c, type: 3}
   m_PrefabInstance: {fileID: 1351686498}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1376310229
@@ -788,10 +834,26 @@ PrefabInstance:
       propertyPath: multiCounter
       value: 
       objectReference: {fileID: 1376310229}
+    - target: {fileID: 3475006951593773834, guid: 5b0673e927af70fd89f0616d841d3308, type: 3}
+      propertyPath: clickedSprite
+      value: 
+      objectReference: {fileID: -1106704088, guid: 6bacbcd612275764ebca8775d318a3ac, type: 3}
+    - target: {fileID: 3475006951593773834, guid: 5b0673e927af70fd89f0616d841d3308, type: 3}
+      propertyPath: neutralSprite
+      value: 
+      objectReference: {fileID: -1838527626873788142, guid: 6bacbcd612275764ebca8775d318a3ac, type: 3}
+    - target: {fileID: 3475006951593773834, guid: 5b0673e927af70fd89f0616d841d3308, type: 3}
+      propertyPath: buttonRenderer
+      value: 
+      objectReference: {fileID: 1611561312}
     - target: {fileID: 3627002028766916004, guid: 5b0673e927af70fd89f0616d841d3308, type: 3}
       propertyPath: m_Name
       value: button_purple_0
       objectReference: {fileID: 0}
+    - target: {fileID: 7934470088030096939, guid: 5b0673e927af70fd89f0616d841d3308, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1838527626873788142, guid: 6bacbcd612275764ebca8775d318a3ac, type: 3}
     - target: {fileID: 7944206260462651195, guid: 5b0673e927af70fd89f0616d841d3308, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.53
@@ -840,6 +902,11 @@ PrefabInstance:
 --- !u!1 &1611561311 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3627002028766916004, guid: 5b0673e927af70fd89f0616d841d3308, type: 3}
+  m_PrefabInstance: {fileID: 1611561310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1611561312 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7934470088030096939, guid: 5b0673e927af70fd89f0616d841d3308, type: 3}
   m_PrefabInstance: {fileID: 1611561310}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1651004829
@@ -1100,6 +1167,22 @@ PrefabInstance:
       propertyPath: multiCounter
       value: 
       objectReference: {fileID: 1376310229}
+    - target: {fileID: 2876795415558549414, guid: 7ab40c9b9f92d987eb720aaa8fd087f5, type: 3}
+      propertyPath: clickedSprite
+      value: 
+      objectReference: {fileID: 2120065407, guid: 6bacbcd612275764ebca8775d318a3ac, type: 3}
+    - target: {fileID: 2876795415558549414, guid: 7ab40c9b9f92d987eb720aaa8fd087f5, type: 3}
+      propertyPath: neutralSprite
+      value: 
+      objectReference: {fileID: 2991064999710630463, guid: 6bacbcd612275764ebca8775d318a3ac, type: 3}
+    - target: {fileID: 2876795415558549414, guid: 7ab40c9b9f92d987eb720aaa8fd087f5, type: 3}
+      propertyPath: buttonRenderer
+      value: 
+      objectReference: {fileID: 2144771742}
+    - target: {fileID: 6125872309666970640, guid: 7ab40c9b9f92d987eb720aaa8fd087f5, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2991064999710630463, guid: 6bacbcd612275764ebca8775d318a3ac, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1108,6 +1191,11 @@ PrefabInstance:
 --- !u!1 &2144771741 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1465921196563672276, guid: 7ab40c9b9f92d987eb720aaa8fd087f5, type: 3}
+  m_PrefabInstance: {fileID: 2144771740}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &2144771742 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6125872309666970640, guid: 7ab40c9b9f92d987eb720aaa8fd087f5, type: 3}
   m_PrefabInstance: {fileID: 2144771740}
   m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
