@@ -5,7 +5,7 @@ public class Conductor : MonoBehaviour
 {
     public AudioSource audioSource;
     public GameObject notePrefab;
-    public float[] laneXPos = { -1.5f, -0.5f, 0.5f, 1.5f };
+    public float[] laneXPos = { -2f, -0.66f, 0.66f, 2f };
     public float nextBeatToSpawn = 4f;
     public int nextNoteIndex = 0;
     public float bpm = 120f;
