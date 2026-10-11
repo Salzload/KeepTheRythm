@@ -3,6 +3,11 @@ using UnityEngine;
 public class Note : MonoBehaviour
 {
     public Conductor conductor;
+    private SpriteRenderer sprite;
+    public Sprite noteLane1;
+    public Sprite noteLane2;
+    public Sprite noteLane3;
+    public Sprite noteLane4;
     public int lane;
     public float beat;
 
@@ -14,6 +19,7 @@ public class Note : MonoBehaviour
     void Start()
     {
         conductor = FindAnyObjectByType<Conductor>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -21,6 +27,22 @@ public class Note : MonoBehaviour
     {
         if(conductor == null) return;
         
+        switch(lane)
+        {
+            case 0:
+                sprite.sprite = noteLane1;
+                break;
+            case 1:
+                sprite.sprite = noteLane2;
+                break;
+            case 2:
+                sprite.sprite = noteLane3;
+                break;
+            case 3:
+                sprite.sprite = noteLane4;
+                break;
+        }
+
         float progress = (conductor.songPosInBeats - (beat - beatsShownInAdvance)) / beatsShownInAdvance;
 
         transform.position = new Vector3(

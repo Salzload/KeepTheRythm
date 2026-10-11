@@ -28,8 +28,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 5.5, y: 5.5, z: 5.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2345119256622708016, guid: 863256cc7d61b8847a0759b29ac327d9, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -90,7 +90,7 @@ SpriteRenderer:
   m_Size: {x: 0.92, y: 0.92}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
 --- !u!114 &9053653135985020277
@@ -106,6 +106,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   conductor: {fileID: 0}
+  noteLane1: {fileID: 5788479606499800250, guid: d23b2e8390b9e544ca431612f12dac94, type: 3}
+  noteLane2: {fileID: 7995880297054510670, guid: 765e5b673ee414343a47adeb75f38aae, type: 3}
+  noteLane3: {fileID: 7542282134924095655, guid: e78aa5b2414a6174eb5ac93054b40ae4, type: 3}
+  noteLane4: {fileID: 2974022142639272996, guid: e0ad9405415d6254290855048f7ec86c, type: 3}
   lane: 0
   beat: 4
   beatsShownInAdvance: 2
