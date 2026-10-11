@@ -36,6 +36,7 @@ public class DateManager : MonoBehaviour
         GameEvents.OnLoveAdded += AddLove;
         GameEvents.OnLoveRemoved += RemoveLove;
         GameEvents.OnPowerupCollected += SavePowerup;
+        GameEvents.GetPercentage = GetPercentage;
     }
 
     private void OnDisable()
@@ -43,6 +44,7 @@ public class DateManager : MonoBehaviour
         GameEvents.OnLoveAdded -= AddLove;
         GameEvents.OnLoveRemoved -= RemoveLove;
         GameEvents.OnPowerupCollected -= SavePowerup;
+        GameEvents.GetPercentage = null;
     }
 
     private void Start()

@@ -17,6 +17,7 @@ public class RedFlagSpawner : MonoBehaviour
     void Start()
     {
         difficulty = Mathf.Min(Mathf.FloorToInt(precentage * 4), 4);
+        precentage = GameEvents.GetPercentage?.Invoke() ?? 2f;
     }
 
     void Update()

@@ -7,7 +7,7 @@ public class GameTest : MonoBehaviour
     {
         if (Keyboard.current == null) return;
 
-        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        /*if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
             Debug.Log("<color=green>TEST: Treffer simuliert (+5)</color>");
             GameEvents.OnLoveAdded?.Invoke(5f);
@@ -29,6 +29,6 @@ public class GameTest : MonoBehaviour
         {
             Debug.Log("<color=black>TEST: Instant Game Over</color>");
             GameEvents.OnLoveRemoved?.Invoke(100f);
-        }
+        } */
     }
 }

@@ -410,7 +410,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: dadf55e930a48684fae7608742f00ef4, type: 3}
+  m_Resource: {fileID: 8300000, guid: 8fa46f964a320a6499636d61236b75ed, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -513,7 +513,7 @@ MonoBehaviour:
   - {fileID: 1611561311}
   - {fileID: 2144771741}
   - {fileID: 1351686499}
-  bpm: 130
+  bpm: 118
 --- !u!4 &1116840994
 Transform:
   m_ObjectHideFlags: 0

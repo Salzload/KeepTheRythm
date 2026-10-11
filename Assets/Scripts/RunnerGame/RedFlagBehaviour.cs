@@ -11,7 +11,7 @@ public class RedFlagBehaviour : MonoBehaviour
 
     Vector2 moveDirection = Vector2.down;
     [SerializeField] float moveSpeed = 6f;
-    [SerializeField] float hpToLoose = 10f;
+    [SerializeField] float hpToLoose = 5f;
 
     public void Initialized(GameObject track, int difficulty)
     {
