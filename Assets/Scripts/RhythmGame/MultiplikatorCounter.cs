@@ -39,8 +39,8 @@ public class MultiplikatorCounter : MonoBehaviour
 
     private void CheckMultiplikator()
     {
-        if (currentCombo >= 30) multiplikator = 8;
-        else if (currentCombo >= 20) multiplikator = 4;
+        if (currentCombo >= 30) multiplikator = 4;
+        else if (currentCombo >= 20) multiplikator = 3;
         else if (currentCombo >= 10) multiplikator = 2;
         else multiplikator = 1;
     }

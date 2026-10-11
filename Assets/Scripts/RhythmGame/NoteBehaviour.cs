@@ -61,7 +61,7 @@ public class NoteBehaviour : MonoBehaviour
                 if (!isAborted)
                 {
                     Debug.Log("Missed!");
-                    GameEvents.OnLoveRemoved?.Invoke(0.2f);
+                    GameEvents.OnLoveRemoved?.Invoke(0.1f);
                     spawner?.notes.Remove(gameObject);
                     multBreaker?.breakMult();
                 }
