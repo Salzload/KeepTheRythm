@@ -55,6 +55,22 @@ public class Conductor : MonoBehaviour
 
             nextBeatToSpawn += 1f;
         }
+        for (int i = 0; i < notesInLanes.Length; i++)
+        {
+            if (notesInLanes[i].Count > 0 && songPosInBeats > notesInLanes[i][0].beat + 0.25f)
+            {
+                Note missedNote = notesInLanes[i][0];
+                notesInLanes[i].RemoveAt(0);
+
+                if (controller != null)
+                {
+                    controller.removeProgess();
+                }
+
+                Debug.Log($"Miss auf Lane {i}!");
+                Destroy(missedNote.gameObject);
+            }
+        }
     }
 
     public void HitNote(int laneIndex)
