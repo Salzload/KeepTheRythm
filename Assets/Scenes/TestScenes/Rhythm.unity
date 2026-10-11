@@ -615,6 +615,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5506512a2b0f1fc5a905b04daf966c91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MultiplikatorCounter
+  minComboForBonus: 5
+  lovePerComboPoint: 0.02
 --- !u!4 &1376310231
 Transform:
   m_ObjectHideFlags: 0
@@ -1120,7 +1122,7 @@ SceneRoots:
   - {fileID: 1904427268}
   - {fileID: 988416699}
   - {fileID: 1651004829}
-  - {fileID: 717187341}
   - {fileID: 1691269712}
   - {fileID: 2144771740}
   - {fileID: 1351686498}
+  - {fileID: 717187341}

@@ -132,7 +132,26 @@ public class DateUI : MonoBehaviour
 
     private void ShowQuestion(int round)
     {
-        if (dialogueText) dialogueText.text = $"Runde {round}: Erzähl mir was!";
+        if (dialogueText)
+        {
+            switch (round)
+            {
+                case 3:
+                    dialogueText.text = $"I think you're cute~?";
+                    break;
+                case 2:
+                    dialogueText.text = $"I can do that, but first I need you to give me the file?";
+                    break;
+                case 1:
+                    dialogueText.text = $"You said something about telegram groups?";
+                    break;
+                default:
+                    dialogueText.text = $"So... What about you?";
+                    break;
+            }
+
+        }
+
     }
 
     private void ShowGameOver() => gameOverScreen?.SetActive(true);
