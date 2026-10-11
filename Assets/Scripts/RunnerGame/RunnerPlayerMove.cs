@@ -7,7 +7,7 @@ public class RunnerPlayerMove : MonoBehaviour
     [SerializeField] private Key leftKey = Key.W;
     [SerializeField] private Key rightKey = Key.R;
 
-    float[] positions = { -6f, -2f, 2f, 6f };
+    float[] positions = { -3.75f, -1.25f, 1.25f, 3,75f };
     public int lastPosition;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

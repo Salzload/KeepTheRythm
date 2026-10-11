@@ -160,7 +160,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4453536}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae023d60ca343b544850da2ef0644194, type: 3}
   m_Name: 
@@ -659,7 +659,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -7443756053782179069, guid: e32e181449fdd474ea6d007fc7f53def, type: 3}
+  m_Sprite: {fileID: -53005147863998819, guid: b614327b2fa392e49a455c620d33473c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1503,7 +1503,7 @@ MonoBehaviour:
   rhythmSceneName: Rhythm
   runnerSceneName: Runner
   questionDuration: 3.5
-  minigameDuration: 15
+  minigameDuration: 7
   activePowerups: []
 --- !u!1 &906088393
 GameObject:
@@ -2151,7 +2151,7 @@ Canvas:
   m_GameObject: {fileID: 1793204893}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 1
