@@ -1,23 +1,32 @@
+using UnityEditor;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class NoteSpawner : MonoBehaviour
 {
     [SerializeField] GameObject track;
     [SerializeField] GameObject note;
-    [SerializeField] float bpm = 130f;
+    [SerializeField] GameObject bpmScanner;
     float beat;
-    float trackTime = 0;
-
+    List<GameObject> notes = new List<GameObject>();
 
     void Start()
     {
-        gameObject.GetComponent<AudioSource>().Play();
-        beat = 60/bpm;
-        trackTime += Time.deltaTime;
+        BpmScanner scanner = bpmScanner.GetComponent<BpmScanner>();
+        beat = 60/scanner.bpm;
     }
 
     void Update()
     {
         
+    }
+
+    public void SpawnNote()
+    {
+        GameObject spawnNote = Instantiate(note);
+
+        NoteBehaviour behaviour = spawnNote.GetComponent<NoteBehaviour>();
+
+        behaviour.Initialized(beat*4, track);
     }
 }

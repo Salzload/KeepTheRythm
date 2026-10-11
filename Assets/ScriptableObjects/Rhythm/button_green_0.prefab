@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8921436755232517271}
   - component: {fileID: 6820206733108468396}
-  - component: {fileID: 296394870446366288}
+  - component: {fileID: -8412987009566765290}
   m_Layer: 0
   m_Name: button_green_0
   m_TagString: Untagged
@@ -93,7 +93,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
---- !u!114 &296394870446366288
+--- !u!114 &-8412987009566765290
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,3 +107,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NoteSpawner
   track: {fileID: 0}
   note: {fileID: 0}
+  bpm: 130
